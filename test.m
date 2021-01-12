@@ -3,43 +3,28 @@ addpath('src');
 addpath('tool');
 
 % 随便测试一个数据集
-data = [0 0; 1 1; 1 0; 0 1; 10 10; 11 10; 10 11; 11 11];
-[cen,class] = Kmeans(data,2,5);
+% data = [0 0; 1 1; 1 0; 0 1; 10 10; 11 10; 10 11; 11 11];
+% [cen,class] = Kmeans(data,2,5);
+% PlotData(data,class,cen);
 
-PlotData(data,class,cen);
-
-
-watermelon = [0.697 0.460
-0.403 0.237
-0.245 0.057
-0.593 0.042
-0.748 0.232
-0.751 0.489
-0.774 0.376
-0.481 0.149
-0.343 0.099
-0.719 0.103
-0.714 0.346
-0.532 0.472
-0.634 0.264
-0.437 0.211
-0.639 0.161
-0.359 0.188
-0.483 0.312
-0.473 0.376
-0.608 0.318
-0.666 0.091
-0.657 0.198
-0.339 0.241
-0.478 0.437
-0.725 0.445
-0.556 0.215
-0.243 0.267
-0.360 0.370
-0.282 0.257
-0.525 0.369
-0.446 0.459];
-
+%% 二维数据测试
+% 西瓜数据 无原始分类数据
+load watermelon.mat;
 [cen,class] = Kmeans(watermelon,3,10);
-
 PlotData(watermelon,class,cen);
+
+% 生成的数据 第一列为原始分类
+load fivecluster.mat;
+class = fivecluster(:,1);
+fivecluster = fivecluster(:,(2:3));
+PlotData(fivecluster,class);
+[cen,class] = Kmeans(fivecluster,5,20);
+PlotData(fivecluster,class,cen);
+
+
+
+%% 三维数据测试
+% haberman 3维
+% load haberman.mat;
+% [cen,class] = Kmeans(haberman(:,1:3),2,20);
+% PlotData(haberman(:,1:3),class,cen);
