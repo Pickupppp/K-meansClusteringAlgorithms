@@ -29,17 +29,20 @@ PlotData(fivecluster,class3,cen3);
 [cen4,class4] = Kmeanspp(fivecluster,5,20);
 PlotData(fivecluster,class4,cen4);
 
+[cen5,class5] = Kmedoids(fivecluster,5,20);
+PlotData(fivecluster,class5,cen5);
+
 % 玩具数据集
-load toy.mat;
-class = toy(:,3);
-toy = toy(:,(1:2));
-PlotData(toy,class);
-
-[cen5,class5] = Kmeans(toy,3,20);
-PlotData(toy,class5,cen5);
-
-[cen6,class6] = Kmeanspp(toy,3,20);
-PlotData(toy,class6,cen6);
+% load toy.mat;
+% class = toy(:,3);
+% toy = toy(:,(1:2));
+% PlotData(toy,class);
+% 
+% [cen5,class5] = Kmeans(toy,3,20);
+% PlotData(toy,class5,cen5);
+% 
+% [cen6,class6] = Kmeanspp(toy,3,20);
+% PlotData(toy,class6,cen6);
 
 %% 三维数据测试
 % haberman 3维
